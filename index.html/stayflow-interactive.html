@@ -528,7 +528,7 @@ async function handleSubmit(){
   if(!email||!email.includes('@')){document.getElementById('email').style.borderColor='#B85040';setTimeout(()=>document.getElementById('email').style.borderColor='',2000);return}
   const btn=document.getElementById('submitBtn');btn.textContent='Joining...';btn.style.opacity='.6';btn.style.pointerEvents='none';
   try{
-    const SUPABASE_URL='YOUR_SUPABASE_URL',SUPABASE_ANON_KEY='YOUR_ANON_KEY';
+    const SUPABASE_URL='https://rxgwlpjbjuqcvljlelet.supabase.co',SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4Z3dscGpianVxY3ZsamxlbGV0IiwicmxzZSI6ImFub24iLCJpYXQiOjE3NzM0MTgwMzUsImV4cCI6MjA4ODk5NDAzNX0.q5hfwQXPlFcVVw_hAzRWujJFAiI09omQJbTX-q1OZU4';
     await fetch(`${SUPABASE_URL}/rest/v1/waitlist`,{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,'Prefer':'return=minimal'},body:JSON.stringify({email,name:document.getElementById('name').value.trim()||null,properties:document.getElementById('properties').value||null,source:'landing_page'})});
   }catch(e){console.error(e)}
   document.querySelector('.waitlist-form').style.display='none';
